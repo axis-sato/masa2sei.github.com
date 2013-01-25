@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 環境構築 | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/環境構築/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-25T21:43:01+09:00</updated>
+  <updated>2013-01-25T21:43:59+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahko Sato]]></name>
@@ -23,12 +23,8 @@
 <ol>
 <li>Dropbox内にOctopressのレポジトリをインストール</li>
 <li>gemやらをインストール</li>
-<li>GitHubにレポジトリを作成
-
-<ol>
+<li>GitHubにレポジトリを作成</li>
 <li>GitHubにコミット</li>
-</ol>
-</li>
 </ol>
 
 
