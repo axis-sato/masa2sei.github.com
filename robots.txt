@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://masa2sei.github.com/sitemap.xml 
