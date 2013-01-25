@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-25T16:58:34+09:00</updated>
+  <updated>2013-01-25T16:59:33+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahko Sato]]></name>
@@ -20,13 +20,13 @@
     <id>http://masa2sei.github.com/blog/2013/01/25/octopress</id>
     <content type="html"><![CDATA[<h2>Octopresのインストール</h2>
 
-<p>1.Dropbox内にOctopressのレポジトリをインストールする。1</p>
+<h3>1.Dropbox内にOctopressのレポジトリをインストールする。</h3>
 
 <pre><code>$cd Dropbox
 $git clone git://github.com/imathis/octopress.git octopress
 </code></pre>
 
-<p>2.gemやらをインストール2</p>
+<h3>2.gemやらをインストール</h3>
 
 <pre><code>$cd octopress
 $gem install bundler
