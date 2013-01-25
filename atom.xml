@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-25T21:45:29+09:00</updated>
+  <updated>2013-01-25T22:14:42+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahko Sato]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressで記事を投稿]]></title>
+    <link href="http://masa2sei.github.com/blog/2013/01/25/blog-posts/"/>
+    <updated>2013-01-25T21:49:00+09:00</updated>
+    <id>http://masa2sei.github.com/blog/2013/01/25/blog-posts</id>
+    <content type="html"><![CDATA[<h2>目次</h2>
+
+<ol>
+<li>_config.ymlの編集</li>
+<li>markdownファイルの生成</li>
+<li>記事を書く</li>
+<li>デプロイ</li>
+</ol>
+
+
+<h2>本論</h2>
+
+<h3>1. _config.ymlの編集</h3>
+
+<p>ページのタイトルとか色々な設定は_config.ymlに記述する。</p>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://octopress.org/docs/configuring/" title="Octopress Configuring Octopress">Octopress Configuring Octopress</a></p>
+
+<h3>2. markdownファイルの生成</h3>
+
+<p>まず、記事の原稿となるmarkdownファイルを生成する。</p>
+
+<pre><code>$ bundle exec rake new_post['Blog Title']
+</code></pre>
+
+<p>すると、source/_postsに2013-01-25-blog-title.markdownというファイルが生成される。</p>
+
+<h3>3. 記事を書く</h3>
+
+<p>とりあえず、記事のタイトルとカテゴリーを編集する。</p>
+
+<pre><code>---
+layout: post
+title: "Octopressの環境構築"
+date: 2013-01-25 14:35
+comments: true
+categories:
+- Octopress
+- 環境構築
+---
+</code></pre>
+
+<p>あとは、markdownで記事を書く。
+<strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://blog.2310.net/archives/6" title="Markdown文法の全訳">Markdown文法の全訳</a></p>
+
+<h3>4. デプロイ</h3>
+
+<p>記事を投稿するのは以下のコマンド</p>
+
+<pre><code>bundle exec rake generate
+bundle exec rake deploy
+</code></pre>
+
+<p>ちなみに、</p>
+
+<pre><code>bundle exec rake gen_deploy
+</code></pre>
+
+<p>でもOK。</p>
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="http://kbaba1001.github.com/blog/2012/06/05/githubtooctopressdeburoguwohazimerufang-fa/" title="githubとOctopressでブログをはじめる方法">githubとOctopressでブログをはじめる方法</a></li>
+<li><a href="http://octopress.org/docs/configuring/" title="Octopress Configuring Octopress">Octopress Configuring Octopress</a></li>
+<li><a href="http://blog.2310.net/archives/6" title="Markdown文法の全訳">Markdown文法の全訳</a></li>
+</ul>
+
+
+<!-- 参照 -->
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopressの環境構築]]></title>
