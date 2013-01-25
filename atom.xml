@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-25T17:41:54+09:00</updated>
+  <updated>2013-01-25T18:03:17+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahko Sato]]></name>
@@ -18,7 +18,7 @@
     <link href="http://masa2sei.github.com/blog/2013/01/25/octopress/"/>
     <updated>2013-01-25T14:35:00+09:00</updated>
     <id>http://masa2sei.github.com/blog/2013/01/25/octopress</id>
-    <content type="html"><![CDATA[<h2>Octopresのインストール</h2>
+    <content type="html"><![CDATA[<h2>Octopressのインストール</h2>
 
 <h4>1. Dropbox内にOctopressのレポジトリをインストールする。</h4>
 
@@ -39,7 +39,7 @@ $ bundle install
 Command Line Tools for Xcodeをインストールすれば解決。</p>
 
 <p><strong> この辺の情報が役に立った </strong>  <br />
-- <a href="http://qiita.com/items/9dd797f42e7bea674705" title="OS X で rbenv を使って ruby 1.9.3 の環境を作る">OS X で rbenv を使って ruby 1.9.3 の環境を作る</a>
+- <a href="http://qiita.com/items/9dd797f42e7bea674705" title="OS X で rbenv を使って ruby 1.9.3 の環境を作る">OS X で rbenv を使って ruby 1.9.3 の環境を作る</a>  <br>
 - <a href="http://geisterchor.blogspot.jp/2012/02/macos-x-lion-xcode-43-gcc.html" title="MacOS X Lion + Xcode 4.3 での gcc">MacOS X Lion + Xcode 4.3 での gcc</a></p>
 
 <p>あとは、rakeをインストールする。</p>
@@ -56,6 +56,29 @@ Command Line Tools for Xcodeをインストールすれば解決。</p>
 
 <p><strong> この辺の情報が役に立った </strong>  <br />
 - <a href="http://q.hatena.ne.jp/1353552605" title="rails にて bundle exec rake db:migrate の「bundle exec」を付けるのと付けないのとでの違いを教えて下さい">人力検索はてな</a></p>
+
+<h2>GitHubにコミット</h2>
+
+<h4>3. GitHubにレポジトリを作成</h4>
+
+<p>&#8216;masa2sei.github.com&#8217;という名前でレポジトリを作成。</p>
+
+<h4>4. GitHubにコミット</h4>
+
+<p>その後、</p>
+
+<pre><code>$ bundle exec rake setup_github_pages
+</code></pre>
+
+<p>レポジトリのURLを聞かれるので&#8217;git@github.com:masa2sei/masa2sei.github.com.git&#8217;を指定。</p>
+
+<p>あとは、</p>
+
+<pre><code>$ bundle exec rake generate
+$ bundle exec rake deploy
+</code></pre>
+
+<p><a href="http://masa2sei.github.com/" title="http://masa2sei.github.com/">http://masa2sei.github.com/</a>にページができているはず。</p>
 
 <!-- 参照 -->
 
