@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-25T22:19:14+09:00</updated>
+  <updated>2013-01-25T22:19:58+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahko Sato]]></name>
@@ -70,13 +70,13 @@ categories:
 
 <p>記事を投稿するのは以下のコマンド</p>
 
-<pre><code>bundle exec rake generate
-bundle exec rake deploy
+<pre><code>$ bundle exec rake generate
+$ bundle exec rake deploy
 </code></pre>
 
 <p>ちなみに、</p>
 
-<pre><code>bundle exec rake gen_deploy
+<pre><code>$ bundle exec rake gen_deploy
 </code></pre>
 
 <p>でもOK。</p>
