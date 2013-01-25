@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-25T22:18:00+09:00</updated>
+  <updated>2013-01-25T22:19:14+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahko Sato]]></name>
@@ -61,8 +61,9 @@ categories:
 ---
 </code></pre>
 
-<p>あとは、markdownで記事を書く。  <br />
-<strong> この辺の情報が役に立った </strong>  <br />
+<p>あとは、markdownで記事を書く。</p>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
 - <a href="http://blog.2310.net/archives/6" title="Markdown文法の全訳">Markdown文法の全訳</a></p>
 
 <h3>4. デプロイ</h3>
