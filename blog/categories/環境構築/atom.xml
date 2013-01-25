@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Note]]></title>
-  <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: 環境構築 | Note]]></title>
+  <link href="http://masa2sei.github.com/blog/categories/環境構築/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
   <updated>2013-01-25T14:42:47+09:00</updated>
   <id>http://masa2sei.github.com/</id>
