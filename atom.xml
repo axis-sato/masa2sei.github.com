@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-25T21:43:59+09:00</updated>
+  <updated>2013-01-25T21:45:29+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahko Sato]]></name>
@@ -28,7 +28,7 @@
 </ol>
 
 
-<hr />
+<h2>本論</h2>
 
 <h3>1. Dropbox内にOctopressのレポジトリをインストール</h3>
 
