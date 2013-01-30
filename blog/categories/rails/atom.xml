@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | Note]]></title>
+  <link href="http://masa2sei.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://masa2sei.github.com/"/>
+  <updated>2013-01-30T23:37:13+09:00</updated>
+  <id>http://masa2sei.github.com/</id>
+  <author>
+    <name><![CDATA[Your Masahiko Sato]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Railsのアップデート]]></title>
+    <link href="http://masa2sei.github.com/blog/2013/01/30/update-rails/"/>
+    <updated>2013-01-30T23:29:00+09:00</updated>
+    <id>http://masa2sei.github.com/blog/2013/01/30/update-rails</id>
+    <content type="html"><![CDATA[<h2>メモ</h2>
+
+<p>Ruby on Railsに深刻な脆弱製があり、修正バージョン（3.2.11）が公開されたということでRailsをアップデート。</p>
+
+<ol>
+<li>Gemfileにgem 'rails', '3.2.11'を記述</li>
+<li>bundle updateコマンド</li>
+</ol>
+
+
+<p>以上。</p>
+]]></content>
+  </entry>
+  
+</feed>
