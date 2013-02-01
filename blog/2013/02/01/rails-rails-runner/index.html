@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopressで記事を投稿 - Note</title>
+  <title>rails runnerを使ってみる - Note</title>
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="目次 _config.ymlの編集
-markdownファイルの生成
-記事を書く
-デプロイ 本論 1. _config.ymlの編集 ページのタイトルとか色々な設定は_config.ymlに記述する。 この辺の情報が役に立った - Octopress Configuring Octopress 2 &hellip;">
+  <meta name="description" content="Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。 基本的にはこのサイトを参考にした
+- Rails3でバッチ処理を実行する 1. libディレクトリのファイルへのパスの設定 以下の設定をconfig/applocation.rbに追加。 config. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ markdownファイルの生成
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/01/25/blog-posts/">
+  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/02/01/rails-rails-runner/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,7 +68,7 @@ markdownファイルの生成
   
   <header>
     
-      <h1 class="entry-title">Octopressで記事を投稿</h1>
+      <h1 class="entry-title">Rails Runnerを使ってみる</h1>
     
     
       <p class="meta">
@@ -86,82 +84,58 @@ markdownファイルの生成
   
 
 
-<time datetime="2013-01-25T21:49:00+09:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
+<time datetime="2013-02-01T16:43:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>目次</h2>
+<div class="entry-content"><p>Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。</p>
 
-<ol>
-<li>_config.ymlの編集</li>
-<li>markdownファイルの生成</li>
-<li>記事を書く</li>
-<li>デプロイ</li>
-</ol>
+<p>基本的にはこのサイトを参考にした
+- <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
 
+<h3>1. libディレクトリのファイルへのパスの設定</h3>
 
-<h2>本論</h2>
+<p>以下の設定をconfig/applocation.rbに追加。</p>
 
-<h3>1. _config.ymlの編集</h3>
+<pre><code>config.autoload_paths += %W(#{config.root}/lib)
+</code></pre>
 
-<p>ページのタイトルとか色々な設定は_config.ymlに記述する。</p>
+<h3>2. rails runnerコマンドで実行するプログラムの作成</h3>
+
+<p>libの下に以下の内容でファイルを作成</p>
+
+<pre><code>class Cron::GetRss
+    def self.get_rss
+        # 実行したい処理
+    end
+end
+</code></pre>
+
+<p>参考にしたサイトではlib/tasksにファイルを作成していたが、lib以下ならどこでもいいらしい。<br />
+lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
+
+<p>なので、今回はlib/cron/get_rss.rbを作成。<br />
+クラス名を上記のようにしないとエラーrails runnerでエラーが起こる。
+たとえば、lib/pdf_stuff/receipt.rbなら、クラス名はPdfStuff::Receiptにする。</p>
 
 <p><strong> この辺の情報が役に立った </strong>  <br />
-- <a href="http://octopress.org/docs/configuring/" title="Octopress Configuring Octopress">Octopress Configuring Octopress</a></p>
+RailsによるアジャイルWebアプリケーション開発　第4版 245ページ</p>
 
-<h3>2. markdownファイルの生成</h3>
+<h3>3. 実行</h3>
 
-<p>まず、記事の原稿となるmarkdownファイルを生成する。</p>
+<p>ターミナルでrails runnerコマンドを実行。</p>
 
-<pre><code>$ bundle exec rake new_post['Blog Title']
+<pre><code>rails runner Cron::GetRss.get_rss
 </code></pre>
-
-<p>すると、source/_postsに2013-01-25-blog-title.markdownというファイルが生成される。</p>
-
-<h3>3. 記事を書く</h3>
-
-<p>とりあえず、記事のタイトルとカテゴリーを編集する。</p>
-
-<pre><code>---
-layout: post
-title: "Octopressの環境構築"
-date: 2013-01-25 14:35
-comments: true
-categories:
-- Octopress
-- 環境構築
----
-</code></pre>
-
-<p>あとは、markdownで記事を書く。</p>
-
-<p><strong> この辺の情報が役に立った </strong>  <br />
-- <a href="http://blog.2310.net/archives/6" title="Markdown文法の全訳">Markdown文法の全訳</a></p>
-
-<h3>4. デプロイ</h3>
-
-<p>記事を投稿するのは以下のコマンド</p>
-
-<pre><code>$ bundle exec rake generate
-$ bundle exec rake deploy
-</code></pre>
-
-<p>ちなみに、</p>
-
-<pre><code>$ bundle exec rake gen_deploy
-</code></pre>
-
-<p>でもOK。</p>
 
 <h2>参照</h2>
 
 <ul>
-<li><a href="http://kbaba1001.github.com/blog/2012/06/05/githubtooctopressdeburoguwohazimerufang-fa/" title="githubとOctopressでブログをはじめる方法">githubとOctopressでブログをはじめる方法</a></li>
-<li><a href="http://octopress.org/docs/configuring/" title="Octopress Configuring Octopress">Octopress Configuring Octopress</a></li>
-<li><a href="http://blog.2310.net/archives/6" title="Markdown文法の全訳">Markdown文法の全訳</a></li>
+<li><a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></li>
+<li>RailsによるアジャイルWebアプリケーション開発　第4版</li>
 </ul>
 
 
@@ -189,12 +163,12 @@ $ bundle exec rake deploy
   
 
 
-<time datetime="2013-01-25T21:49:00+09:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
+<time datetime="2013-02-01T16:43:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
+    <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/runner/'>runner</a>
   
 </span>
 
@@ -203,7 +177,7 @@ $ bundle exec rake deploy
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/01/25/blog-posts/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/01/25/blog-posts/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/02/01/rails-rails-runner/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/02/01/rails-rails-runner/" >Tweet</a>
   
   
   
@@ -212,10 +186,8 @@ $ bundle exec rake deploy
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/25/octopress/" title="Previous Post: Octopressの環境構築">&laquo; Octopressの環境構築</a>
+        <a class="basic-alignment left" href="/blog/2013/01/30/update-rails/" title="Previous Post: Railsのアップデート">&laquo; Railsのアップデート</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/01/30/update-rails/" title="Next Post: Railsのアップデート">Railsのアップデート &raquo;</a>
       
     </p>
   </footer>

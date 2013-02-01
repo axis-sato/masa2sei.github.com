@@ -9,8 +9,8 @@
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="メモ Ruby on Railsに深刻な脆弱製があり、修正バージョン（3.2.11）が公開されたということでRailsをアップデート。 Gemfileにgem &#8216;rails&#8217;, &#8216;3.2.11&#8217;を記述
-bundle updateコマンド 以上。 参照 &hellip;">
+  <meta name="description" content="Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。 基本的にはこのサイトを参考にした
+- Rails3でバッチ処理を実行する 1. libディレクトリのファイルへのパスの設定 以下の設定をconfig/applocation.rbに追加。 config. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,91 @@ bundle updateコマンド 以上。 参照 &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/01/rails-rails-runner/">Rails Runnerを使ってみる</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-01T16:43:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。</p>
+
+<p>基本的にはこのサイトを参考にした
+- <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
+
+<h3>1. libディレクトリのファイルへのパスの設定</h3>
+
+<p>以下の設定をconfig/applocation.rbに追加。</p>
+
+<pre><code>config.autoload_paths += %W(#{config.root}/lib)
+</code></pre>
+
+<h3>2. rails runnerコマンドで実行するプログラムの作成</h3>
+
+<p>libの下に以下の内容でファイルを作成</p>
+
+<pre><code>class Cron::GetRss
+    def self.get_rss
+        # 実行したい処理
+    end
+end
+</code></pre>
+
+<p>参考にしたサイトではlib/tasksにファイルを作成していたが、lib以下ならどこでもいいらしい。<br />
+lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
+
+<p>なので、今回はlib/cron/get_rss.rbを作成。<br />
+クラス名を上記のようにしないとエラーrails runnerでエラーが起こる。
+たとえば、lib/pdf_stuff/receipt.rbなら、クラス名はPdfStuff::Receiptにする。</p>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+RailsによるアジャイルWebアプリケーション開発　第4版 245ページ</p>
+
+<h3>3. 実行</h3>
+
+<p>ターミナルでrails runnerコマンドを実行。</p>
+
+<pre><code>rails runner Cron::GetRss.get_rss
+</code></pre>
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></li>
+<li>RailsによるアジャイルWebアプリケーション開発　第4版</li>
+</ul>
+
+
+<!-- 参照 -->
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -361,6 +446,10 @@ $ bundle exec rake deploy
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/01/rails-rails-runner/">rails runnerを使ってみる</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/01/30/update-rails/">Railsのアップデート</a>

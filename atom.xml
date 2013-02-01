@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-01-30T23:40:21+09:00</updated>
+  <updated>2013-02-01T17:30:44+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[rails runnerを使ってみる]]></title>
+    <link href="http://masa2sei.github.com/blog/2013/02/01/rails-rails-runner/"/>
+    <updated>2013-02-01T16:43:00+09:00</updated>
+    <id>http://masa2sei.github.com/blog/2013/02/01/rails-rails-runner</id>
+    <content type="html"><![CDATA[<p>Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。</p>
+
+<p>基本的にはこのサイトを参考にした
+- <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
+
+<h3>1. libディレクトリのファイルへのパスの設定</h3>
+
+<p>以下の設定をconfig/applocation.rbに追加。</p>
+
+<pre><code>config.autoload_paths += %W(#{config.root}/lib)
+</code></pre>
+
+<h3>2. rails runnerコマンドで実行するプログラムの作成</h3>
+
+<p>libの下に以下の内容でファイルを作成</p>
+
+<pre><code>class Cron::GetRss
+    def self.get_rss
+        # 実行したい処理
+    end
+end
+</code></pre>
+
+<p>参考にしたサイトではlib/tasksにファイルを作成していたが、lib以下ならどこでもいいらしい。<br />
+lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
+
+<p>なので、今回はlib/cron/get_rss.rbを作成。<br />
+クラス名を上記のようにしないとエラーrails runnerでエラーが起こる。
+たとえば、lib/pdf_stuff/receipt.rbなら、クラス名はPdfStuff::Receiptにする。</p>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+RailsによるアジャイルWebアプリケーション開発　第4版 245ページ</p>
+
+<h3>3. 実行</h3>
+
+<p>ターミナルでrails runnerコマンドを実行。</p>
+
+<pre><code>rails runner Cron::GetRss.get_rss
+</code></pre>
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></li>
+<li>RailsによるアジャイルWebアプリケーション開発　第4版</li>
+</ul>
+
+
+<!-- 参照 -->
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Railsのアップデート]]></title>
