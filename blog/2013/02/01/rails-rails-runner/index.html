@@ -10,7 +10,7 @@
 
   
   <meta name="description" content="Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。 基本的にはこのサイトを参考にした
-- Rails3でバッチ処理を実行する 1. libディレクトリのファイルへのパスの設定 以下の設定をconfig/applocation.rbに追加。 config. &hellip;">
+- Rails3でバッチ処理を実行する 1. libディレクトリのファイルへのパスの設定 以下の設定をconfig/application.rbに追加。 config. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,12 +93,12 @@
 
 <div class="entry-content"><p>Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。</p>
 
-<p>基本的にはこのサイトを参考にした
+<p>基本的にはこのサイトを参考にした<br />
 - <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
 
 <h3>1. libディレクトリのファイルへのパスの設定</h3>
 
-<p>以下の設定をconfig/applocation.rbに追加。</p>
+<p>以下の設定をconfig/application.rbに追加。</p>
 
 <pre><code>config.autoload_paths += %W(#{config.root}/lib)
 </code></pre>
@@ -118,7 +118,7 @@ end
 lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
 
 <p>なので、今回はlib/cron/get_rss.rbを作成。<br />
-クラス名を上記のようにしないとエラーrails runnerでエラーが起こる。
+クラス名を上記のようにCron::GetRssにしないとrails runnerでエラーが起こる。<br />
 たとえば、lib/pdf_stuff/receipt.rbなら、クラス名はPdfStuff::Receiptにする。</p>
 
 <p><strong> この辺の情報が役に立った </strong>  <br />

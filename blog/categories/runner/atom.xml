@@ -4,7 +4,7 @@
   <title><![CDATA[Category: runner | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/runner/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-01T17:32:04+09:00</updated>
+  <updated>2013-02-01T17:37:16+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -20,12 +20,12 @@
     <id>http://masa2sei.github.com/blog/2013/02/01/rails-rails-runner</id>
     <content type="html"><![CDATA[<p>Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。</p>
 
-<p>基本的にはこのサイトを参考にした
+<p>基本的にはこのサイトを参考にした<br />
 - <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
 
 <h3>1. libディレクトリのファイルへのパスの設定</h3>
 
-<p>以下の設定をconfig/applocation.rbに追加。</p>
+<p>以下の設定をconfig/application.rbに追加。</p>
 
 <pre><code>config.autoload_paths += %W(#{config.root}/lib)
 </code></pre>
@@ -45,7 +45,7 @@ end
 lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
 
 <p>なので、今回はlib/cron/get_rss.rbを作成。<br />
-クラス名を上記のようにしないとエラーrails runnerでエラーが起こる。
+クラス名を上記のようにCron::GetRssにしないとrails runnerでエラーが起こる。<br />
 たとえば、lib/pdf_stuff/receipt.rbなら、クラス名はPdfStuff::Receiptにする。</p>
 
 <p><strong> この辺の情報が役に立った </strong>  <br />
