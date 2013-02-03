@@ -14,6 +14,7 @@ categories:
 3. GitHubにレポジトリを作成
 4. GitHubにコミット
 
+<!-- more -->
 
 ##本論
 ###1. Dropbox内にOctopressのレポジトリをインストール
