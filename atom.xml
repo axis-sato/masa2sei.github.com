@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-03T14:15:20+09:00</updated>
+  <updated>2013-02-03T17:32:38+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -12,6 +12,132 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressのカスタマイズ]]></title>
+    <link href="http://masa2sei.github.com/blog/2013/02/03/customize-octopress/"/>
+    <updated>2013-02-03T14:17:00+09:00</updated>
+    <id>http://masa2sei.github.com/blog/2013/02/03/customize-octopress</id>
+    <content type="html"><![CDATA[<h2>目次</h2>
+
+<ol>
+<li>サイドバーにタグクラウドを追加</li>
+<li>新規ページを作成</li>
+<li>「続きを読む」を表示</li>
+</ol>
+
+
+<!-- more -->
+
+
+<h2>本論</h2>
+
+<h3>1. サイドバーにタグクラウドを追加</h3>
+
+<h5>プラグインのインストール</h5>
+
+<p>tokkonopapaさんの<a href="https://github.com/tokkonopapa/octopress-tagcloud" title="octopress-tagcloud">octopress-tagcloud</a>を使わしてもらう。<br />
+３つのファイル（tag_cloud.rb、category_list.html、tag_cloud.html）を以下のディレクトリにコピー。<br />
+./plugins/tag_cloud.rb<br />
+./source/<em>includes/custom/asides/category_list.html<br />
+./source/</em>includes/custom/asides/tag_cloud.html</p>
+
+<h4>CSSの編集</h4>
+
+<p>./sass/custom/_styles.scssを以下のように編集</p>
+
+<figure class='code'><figcaption><span> (_styles.scss)</span> <a href='http://masa2sei.github.com/downloads/code/_styles.scss'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="c1">// This File is imported last, and will override other styles in the cascade</span>
+</span><span class='line'><span class="c1">// Add styles here to make changes without digging in too much</span>
+</span><span class='line'><span class="nn">#tag-cloud</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">line-height</span><span class="o">:</span> <span class="mi">2</span><span class="mf">.2</span><span class="kt">em</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>_config.ymlの編集</h4>
+
+<pre><code>default_asides: [..., custom/asides/tag_cloud.html, custom/asides/tag_cloud.html]
+</code></pre>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://tokkonopapa.github.com/blog/2012/01/04/octopress-plugin-for-categories-cloud/" title="Octopress用Tag Cloudプラグインをリリースします">Octopress用Tag Cloudプラグインをリリースします</a></p>
+
+<h3>2. 新規ページを作成</h3>
+
+<h4>ファイルの作成</h4>
+
+<pre><code>$ bundle exec rake new_page['ファイル名']
+</code></pre>
+
+<h4>ナビゲーションの編集</h4>
+
+<p>source/_includes/custom/navigation.htmlに新規作成したページへのリンクを追加</p>
+
+<figure class='code'><figcaption><span> (navigation.html)</span> <a href='http://masa2sei.github.com/downloads/code/navigation.html'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/unix&quot;</span><span class="nt">&gt;</span>Unixコマンド<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/git&quot;</span><span class="nt">&gt;</span>Gitコマンド<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/emacs&quot;</span><span class="nt">&gt;</span>Emacs<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/rails&quot;</span><span class="nt">&gt;</span>Rails<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://qiita.com/items/4b9b6efd9d52d904986c" title="Octopressで新規ページを作成してみよう！">Octopressで新規ページを作成してみよう！</a></p>
+
+<h3>3. 「続きを読む」を表示</h3>
+
+<h4>_config.ymlをのexcerpt_linkを以下のように変更</h4>
+
+<figure class='code'><figcaption><span> (_config.yml)</span> <a href='http://masa2sei.github.com/downloads/code/_config.yml'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">excerpt_link</span><span class="p-Indicator">:</span> <span class="s">&quot;続きを読む&quot;</span>  <span class="c1"># &quot;Continue reading&quot; link text at the bottom of excerpted articles</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>記事の編集</h4>
+
+<p>記事を以下のように編集</p>
+
+<pre><code># 上の内容までがトップページに表示 #
+&lt;!-- more --&gt;
+# 下の内容が個別の記事のページに表示 #
+</code></pre>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://morizyun.github.com/blog/octopress-hatena-disqus-new-tab/" title="5分でできる簡単 Octopress セッティング">5分でできる簡単 Octopress セッティング</a></p>
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="https://github.com/tokkonopapa/octopress-tagcloud" title="octopress-tagcloud">octopress-tagcloud</a></li>
+<li><a href="http://tokkonopapa.github.com/blog/2012/01/04/octopress-plugin-for-categories-cloud/" title="Octopress用Tag Cloudプラグインをリリースします">Octopress用Tag Cloudプラグインをリリースします</a></li>
+<li><a href="http://qiita.com/items/4b9b6efd9d52d904986c" title="Octopressで新規ページを作成してみよう！">Octopressで新規ページを作成してみよう！</a></li>
+<li><a href="http://morizyun.github.com/blog/octopress-hatena-disqus-new-tab/" title="5分でできる簡単 Octopress セッティング">5分でできる簡単 Octopress セッティング</a></li>
+</ul>
+
+
+<!-- 参照 -->
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[rails runnerを使ってみる]]></title>
@@ -22,6 +148,9 @@
 
 <p>基本的にはこのサイトを参考にした<br />
 - <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
+
+<!-- more -->
+
 
 <h3>1. libディレクトリのファイルへのパスの設定</h3>
 
@@ -34,12 +163,19 @@
 
 <p>libの下に以下の内容でファイルを作成</p>
 
-<pre><code>class Cron::GetRss
-    def self.get_rss
-        # 実行したい処理
-    end
-end
-</code></pre>
+<figure class='code'><figcaption><span> (get_rss.rb)</span> <a href='http://masa2sei.github.com/downloads/code/get_rss.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="k">class</span> <span class="nc">Cron</span><span class="o">::</span><span class="no">GetRss</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">get_rss</span>
+</span><span class='line'>        <span class="c1"># 実行したい処理</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>参考にしたサイトではlib/tasksにファイルを作成していたが、lib以下ならどこでもいいらしい。<br />
 lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
@@ -88,6 +224,9 @@ lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすい�
 
 <p>以上。</p>
 
+<!-- more -->
+
+
 <h2>参照</h2>
 
 <ul>
@@ -113,6 +252,9 @@ lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすい�
 <li>記事を書く</li>
 <li>デプロイ</li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2>本論</h2>
@@ -195,6 +337,9 @@ $ bundle exec rake deploy
 <li>GitHubにレポジトリを作成</li>
 <li>GitHubにコミット</li>
 </ol>
+
+
+<!-- more -->
 
 
 <h2>本論</h2>

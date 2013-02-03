@@ -9,8 +9,9 @@
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="Railsでは、rails runnerコマンドでRubyファイルを直接実行できるらしい。 基本的にはこのサイトを参考にした
-- Rails3でバッチ処理を実行する 1. libディレクトリのファイルへのパスの設定 以下の設定をconfig/application.rbに追加。 config. &hellip;">
+  <meta name="description" content="目次 サイドバーにタグクラウドを追加
+新規ページを作成
+「続きを読む」を表示 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +59,10 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/unix">Unixコマンド</a></li>
+  <li><a href="/git">Gitコマンド</a></li>
+  <li><a href="/emacs">Emacs</a></li>
+  <li><a href="/rails">Rails</a></li>
 </ul>
 
 </nav>
@@ -65,6 +70,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/03/customize-octopress/">Octopressのカスタマイズ</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-03T14:17:00+09:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>目次</h2>
+
+<ol>
+<li>サイドバーにタグクラウドを追加</li>
+<li>新規ページを作成</li>
+<li>「続きを読む」を表示</li>
+</ol>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/02/03/customize-octopress/">続きを読む</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -99,53 +152,12 @@
 <p>基本的にはこのサイトを参考にした<br />
 - <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
 
-<h3>1. libディレクトリのファイルへのパスの設定</h3>
-
-<p>以下の設定をconfig/application.rbに追加。</p>
-
-<pre><code>config.autoload_paths += %W(#{config.root}/lib)
-</code></pre>
-
-<h3>2. rails runnerコマンドで実行するプログラムの作成</h3>
-
-<p>libの下に以下の内容でファイルを作成</p>
-
-<pre><code>class Cron::GetRss
-    def self.get_rss
-        # 実行したい処理
-    end
-end
-</code></pre>
-
-<p>参考にしたサイトではlib/tasksにファイルを作成していたが、lib以下ならどこでもいいらしい。<br />
-lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
-
-<p>なので、今回はlib/cron/get_rss.rbを作成。<br />
-クラス名を上記のようにCron::GetRssにしないとrails runnerでエラーが起こる。<br />
-たとえば、lib/pdf_stuff/receipt.rbなら、クラス名はPdfStuff::Receiptにする。</p>
-
-<p><strong> この辺の情報が役に立った </strong>  <br />
-- RailsによるアジャイルWebアプリケーション開発　第4版 245ページ</p>
-
-<h3>3. 実行</h3>
-
-<p>ターミナルでrails runnerコマンドを実行。</p>
-
-<pre><code>rails runner Cron::GetRss.get_rss
-</code></pre>
-
-<h2>参照</h2>
-
-<ul>
-<li><a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></li>
-<li>RailsによるアジャイルWebアプリケーション開発　第4版</li>
-</ul>
-
-
-<!-- 参照 -->
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/02/01/rails-rails-runner/">続きを読む</a>
+    </footer>
   
 
 
@@ -191,17 +203,12 @@ lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすい�
 
 <p>以上。</p>
 
-<h2>参照</h2>
-
-<ul>
-<li><a href="http://www.itmedia.co.jp/enterprise/articles/1301/10/news020.html" title="「Ruby on Rails」に極めて深刻な脆弱性、直ちにアップデートを">「Ruby on Rails」に極めて深刻な脆弱性、直ちにアップデートを</a></li>
-</ul>
-
-
-<!-- 参照 -->
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/01/30/update-rails/">続きを読む</a>
+    </footer>
   
 
 
@@ -245,72 +252,12 @@ lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすい�
 </ol>
 
 
-<h2>本論</h2>
-
-<h3>1. _config.ymlの編集</h3>
-
-<p>ページのタイトルとか色々な設定は_config.ymlに記述する。</p>
-
-<p><strong> この辺の情報が役に立った </strong>  <br />
-- <a href="http://octopress.org/docs/configuring/" title="Octopress Configuring Octopress">Octopress Configuring Octopress</a></p>
-
-<h3>2. markdownファイルの生成</h3>
-
-<p>まず、記事の原稿となるmarkdownファイルを生成する。</p>
-
-<pre><code>$ bundle exec rake new_post['Blog Title']
-</code></pre>
-
-<p>すると、source/_postsに2013-01-25-blog-title.markdownというファイルが生成される。</p>
-
-<h3>3. 記事を書く</h3>
-
-<p>とりあえず、記事のタイトルとカテゴリーを編集する。</p>
-
-<pre><code>---
-layout: post
-title: "Octopressの環境構築"
-date: 2013-01-25 14:35
-comments: true
-categories:
-- Octopress
-- 環境構築
----
-</code></pre>
-
-<p>あとは、markdownで記事を書く。</p>
-
-<p><strong> この辺の情報が役に立った </strong>  <br />
-- <a href="http://blog.2310.net/archives/6" title="Markdown文法の全訳">Markdown文法の全訳</a></p>
-
-<h3>4. デプロイ</h3>
-
-<p>記事を投稿するのは以下のコマンド</p>
-
-<pre><code>$ bundle exec rake generate
-$ bundle exec rake deploy
-</code></pre>
-
-<p>ちなみに、</p>
-
-<pre><code>$ bundle exec rake gen_deploy
-</code></pre>
-
-<p>でもOK。</p>
-
-<h2>参照</h2>
-
-<ul>
-<li><a href="http://kbaba1001.github.com/blog/2012/06/05/githubtooctopressdeburoguwohazimerufang-fa/" title="githubとOctopressでブログをはじめる方法">githubとOctopressでブログをはじめる方法</a></li>
-<li><a href="http://octopress.org/docs/configuring/" title="Octopress Configuring Octopress">Octopress Configuring Octopress</a></li>
-<li><a href="http://blog.2310.net/archives/6" title="Markdown文法の全訳">Markdown文法の全訳</a></li>
-</ul>
-
-
-<!-- 参照 -->
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/01/25/blog-posts/">続きを読む</a>
+    </footer>
   
 
 
@@ -354,82 +301,12 @@ $ bundle exec rake deploy
 </ol>
 
 
-<h2>本論</h2>
-
-<h3>1. Dropbox内にOctopressのレポジトリをインストール</h3>
-
-<pre><code>$ cd Dropbox
-$ git clone git://github.com/imathis/octopress.git octopress
-</code></pre>
-
-<h3>2. gemやらをインストール</h3>
-
-<pre><code>$ cd octopress
-$ gem install bundler
-$ rbenv rehash
-$ bundle install
-</code></pre>
-
-<p>bundle installで、RedClothがインストールできない。  <br />
-　→gccがない？  <br />
-Command Line Tools for Xcodeをインストールすれば解決。</p>
-
-<p><strong> この辺の情報が役に立った </strong>  <br />
-- <a href="http://qiita.com/items/9dd797f42e7bea674705" title="OS X で rbenv を使って ruby 1.9.3 の環境を作る">OS X で rbenv を使って ruby 1.9.3 の環境を作る</a>  <br>
-- <a href="http://geisterchor.blogspot.jp/2012/02/macos-x-lion-xcode-43-gcc.html" title="MacOS X Lion + Xcode 4.3 での gcc">MacOS X Lion + Xcode 4.3 での gcc</a></p>
-
-<p>あとは、rakeをインストールする。</p>
-
-<pre><code>$ rake install
-</code></pre>
-
-<p>ここで、rake0.9.2.2を使いたいが、rake 10.0.3がアクティベートになってるとかでエラー。</p>
-
-<pre><code>$ bundle exec rake install
-</code></pre>
-
-<p>これで、解決。</p>
-
-<p><strong> この辺の情報が役に立った </strong>  <br />
-- <a href="http://q.hatena.ne.jp/1353552605" title="rails にて bundle exec rake db:migrate の「bundle exec」を付けるのと付けないのとでの違いを教えて下さい">人力検索はてな</a></p>
-
-<h3>3. GitHubにレポジトリを作成</h3>
-
-<p>&#8216;masa2sei.github.com&#8217;という名前でレポジトリを作成。</p>
-
-<h3>4. GitHubにコミット</h3>
-
-<p>その後、</p>
-
-<pre><code>$ bundle exec rake setup_github_pages
-</code></pre>
-
-<p>レポジトリのURLを聞かれるので&#8217;git@github.com:masa2sei/masa2sei.github.com.git&#8217;を指定。</p>
-
-<p>あとは、</p>
-
-<pre><code>$ bundle exec rake generate
-$ bundle exec rake deploy
-</code></pre>
-
-<p><a href="http://masa2sei.github.com/" title="http://masa2sei.github.com/">http://masa2sei.github.com/</a>にページができているはず。</p>
-
-<h2>参照</h2>
-
-<ul>
-<li><a href="http://qiita.com/items/06d8e447baee99163fc3" title="MacでOctopressをgithub pagesにセットアップするまでに行った事">MacでOctopressをgithub pagesにセットアップするまでに行った事</a></li>
-<li><a href="http://kbaba1001.github.com/blog/2012/06/05/githubtooctopressdeburoguwohazimerufang-fa/" title="githubとOctopressでブログをはじめる方法">githubとOctopressでブログをはじめる方法</a></li>
-<li><a href="http://tokkonopapa.github.com/blog/2011/12/30/octopress-on-github-and-bitbucket/" title="Octopressのインストールから運用管理まで">Octopressのインストールから運用管理まで</a></li>
-<li><a href="http://qiita.com/items/9dd797f42e7bea674705" title="OS X で rbenv を使って ruby 1.9.3 の環境を作る">OS X で rbenv を使って ruby 1.9.3 の環境を作る</a></li>
-<li><a href="http://geisterchor.blogspot.jp/2012/02/macos-x-lion-xcode-43-gcc.html" title="MacOS X Lion + Xcode 4.3 での gcc">MacOS X Lion + Xcode 4.3 での gcc</a></li>
-<li><a href="http://q.hatena.ne.jp/1353552605" title="rails にて bundle exec rake db:migrate の「bundle exec」を付けるのと付けないのとでの違いを教えて下さい">人力検索はてな</a></li>
-</ul>
-
-
-<!-- 参照 -->
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/01/25/octopress/">続きを読む</a>
+    </footer>
   
 
 
@@ -446,6 +323,10 @@ $ bundle exec rake deploy
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/03/customize-octopress/">Octopressのカスタマイズ</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/02/01/rails-rails-runner/">rails runnerを使ってみる</a>
@@ -472,11 +353,11 @@ $ bundle exec rake deploy
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(2)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>Rails(2)</a> <a href='/blog/categories/runner' style='font-size: 130.0%'>runner(1)</a> <a href='/blog/categories/環境構築' style='font-size: 130.0%'>環境構築(1)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(3)</a> <a href='/blog/categories/rails' style='font-size: 140.0%'>Rails(2)</a> <a href='/blog/categories/runner' style='font-size: 120.0%'>runner(1)</a> <a href='/blog/categories/環境構築' style='font-size: 120.0%'>環境構築(1)</a> </span>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/octopress'>Octopress (2)</a></li><li><a href='/blog/categories/rails'>Rails (2)</a></li><li><a href='/blog/categories/runner'>runner (1)</a></li><li><a href='/blog/categories/環境構築'>環境構築 (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/octopress'>Octopress (3)</a></li><li><a href='/blog/categories/rails'>Rails (2)</a></li><li><a href='/blog/categories/runner'>runner (1)</a></li><li><a href='/blog/categories/環境構築'>環境構築 (1)</a></li></ul>
 </section>
 
   

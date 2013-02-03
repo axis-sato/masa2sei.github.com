@@ -2,30 +2,58 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://masa2sei.github.com/blog/2013/01/25/octopress/</loc>
-        <lastmod>2013-01-25T21:45:23+09:00</lastmod>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
     </url>
     <url>
         <loc>http://masa2sei.github.com/blog/2013/01/25/blog-posts/</loc>
-        <lastmod>2013-01-25T22:19:53+09:00</lastmod>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
     </url>
     <url>
         <loc>http://masa2sei.github.com/blog/2013/01/30/update-rails/</loc>
-        <lastmod>2013-01-30T23:40:17+09:00</lastmod>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
     </url>
     <url>
         <loc>http://masa2sei.github.com/blog/2013/02/01/rails-rails-runner/</loc>
-        <lastmod>2013-02-01T17:35:53+09:00</lastmod>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://masa2sei.github.com/blog/2013/02/03/customize-octopress/</loc>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://masa2sei.github.com/404.html</loc>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://masa2sei.github.com/archives/</loc>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
     </url>
     <url>
         <loc>http://masa2sei.github.com/blog/archives/</loc>
-        <lastmod>2013-02-01T17:35:53+09:00</lastmod>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://masa2sei.github.com/emacs/</loc>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://masa2sei.github.com/git/</loc>
+        <lastmod>2013-02-03T17:32:01+09:00</lastmod>
     </url>
     <url>
         <loc>http://masa2sei.github.com/</loc>
-        <lastmod>2013-02-01T17:35:53+09:00</lastmod>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://masa2sei.github.com/rails/</loc>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
     </url>
     <url>
         <loc>http://masa2sei.github.com/robots.txt</loc>
-        <lastmod>2013-01-25T00:51:05+09:00</lastmod>
+        <lastmod>2013-02-03T17:23:19+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://masa2sei.github.com/unix/</loc>
+        <lastmod>2013-02-03T17:30:15+09:00</lastmod>
     </url>
 </urlset>

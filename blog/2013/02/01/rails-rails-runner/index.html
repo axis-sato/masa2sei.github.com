@@ -58,6 +58,10 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/unix">Unixコマンド</a></li>
+  <li><a href="/git">Gitコマンド</a></li>
+  <li><a href="/emacs">Emacs</a></li>
+  <li><a href="/rails">Rails</a></li>
 </ul>
 
 </nav>
@@ -96,6 +100,9 @@
 <p>基本的にはこのサイトを参考にした<br />
 - <a href="http://www.slowlydays.net/wordpress/?p=707" title="Rails3でバッチ処理を実行する">Rails3でバッチ処理を実行する</a></p>
 
+<!-- more -->
+
+
 <h3>1. libディレクトリのファイルへのパスの設定</h3>
 
 <p>以下の設定をconfig/application.rbに追加。</p>
@@ -107,12 +114,19 @@
 
 <p>libの下に以下の内容でファイルを作成</p>
 
-<pre><code>class Cron::GetRss
-    def self.get_rss
-        # 実行したい処理
-    end
-end
-</code></pre>
+<figure class='code'><figcaption><span> (get_rss.rb)</span> <a href='/downloads/code/get_rss.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="k">class</span> <span class="nc">Cron</span><span class="o">::</span><span class="no">GetRss</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">get_rss</span>
+</span><span class='line'>        <span class="c1"># 実行したい処理</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>参考にしたサイトではlib/tasksにファイルを作成していたが、lib以下ならどこでもいいらしい。<br />
 lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>
@@ -189,6 +203,8 @@ lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすい�
         <a class="basic-alignment left" href="/blog/2013/01/30/update-rails/" title="Previous Post: Railsのアップデート">&laquo; Railsのアップデート</a>
       
       
+        <a class="basic-alignment right" href="/blog/2013/02/03/customize-octopress/" title="Next Post: Octopressのカスタマイズ">Octopressのカスタマイズ &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -200,6 +216,10 @@ lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすい�
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/03/customize-octopress/">Octopressのカスタマイズ</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/02/01/rails-rails-runner/">rails runnerを使ってみる</a>
@@ -226,11 +246,11 @@ lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすい�
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(2)</a> <a href='/blog/categories/rails' style='font-size: 160.0%'>Rails(2)</a> <a href='/blog/categories/runner' style='font-size: 130.0%'>runner(1)</a> <a href='/blog/categories/環境構築' style='font-size: 130.0%'>環境構築(1)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(3)</a> <a href='/blog/categories/rails' style='font-size: 140.0%'>Rails(2)</a> <a href='/blog/categories/runner' style='font-size: 120.0%'>runner(1)</a> <a href='/blog/categories/環境構築' style='font-size: 120.0%'>環境構築(1)</a> </span>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/octopress'>Octopress (2)</a></li><li><a href='/blog/categories/rails'>Rails (2)</a></li><li><a href='/blog/categories/runner'>runner (1)</a></li><li><a href='/blog/categories/環境構築'>環境構築 (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/octopress'>Octopress (3)</a></li><li><a href='/blog/categories/rails'>Rails (2)</a></li><li><a href='/blog/categories/runner'>runner (1)</a></li><li><a href='/blog/categories/環境構築'>環境構築 (1)</a></li></ul>
 </section>
 
   
