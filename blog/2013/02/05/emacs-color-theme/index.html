@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Railsのアップデート - Note</title>
+  <title>Emacsのカラーテーマの設定 - Note</title>
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="メモ Ruby on Railsに深刻な脆弱製があり、修正バージョン（3.2.11）が公開されたということでRailsをアップデート。 Gemfileにgem &#8216;rails&#8217;, &#8216;3.2.11&#8217;を記述
-bundle updateコマンド 以上。 参照 &hellip;">
+  <meta name="description" content="Emacsのカラーテーマの設定をsolarizedにする。 Emacs24以前 color-themeをrequireする必要がある この辺の情報が役に立った - emacsでcolor-theme-solarizedを使う Emacs24 (load-theme &#8216;solarized &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ bundle updateコマンド 以上。 参照 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/01/30/update-rails/">
+  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/02/05/emacs-color-theme/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -72,7 +71,7 @@ bundle updateコマンド 以上。 参照 &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Railsのアップデート</h1>
+      <h1 class="entry-title">Emacsのカラーテーマの設定</h1>
     
     
       <p class="meta">
@@ -88,32 +87,40 @@ bundle updateコマンド 以上。 参照 &hellip;">
   
 
 
-<time datetime="2013-01-30T23:29:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-02-05T19:04:00+09:00" pubdate data-updated="true">Feb 5<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>メモ</h2>
+<div class="entry-content"><p>Emacsのカラーテーマの設定をsolarizedにする。</p>
 
-<p>Ruby on Railsに深刻な脆弱製があり、修正バージョン（3.2.11）が公開されたということでRailsをアップデート。</p>
-
-<ol>
-<li>Gemfileにgem &#8216;rails&#8217;, &#8216;3.2.11&#8217;を記述</li>
-<li>bundle updateコマンド</li>
-</ol>
+<ul>
+<li>Emacs24以前</li>
+</ul>
 
 
-<p>以上。</p>
+<p>color-themeをrequireする必要がある</p>
 
-<!-- more -->
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://blog.sanojimaru.com/post/19982182895/emacs-color-theme-solarized" title="[emacsでcolor-theme-solarizedを使う">emacsでcolor-theme-solarizedを使う</a></p>
 
+<ul>
+<li>Emacs24<br /></li>
+</ul>
+
+
+<p>(load-theme &#8216;solarized-dark t)でok</p>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://d.hatena.ne.jp/syohex/20121211/1355231365" title="Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう">Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう</a></p>
 
 <h2>参照</h2>
 
 <ul>
-<li><a href="http://www.itmedia.co.jp/enterprise/articles/1301/10/news020.html" title="「Ruby on Rails」に極めて深刻な脆弱性、直ちにアップデートを">「Ruby on Rails」に極めて深刻な脆弱性、直ちにアップデートを</a></li>
+<li><a href="http://blog.sanojimaru.com/post/19982182895/emacs-color-theme-solarized" title="[emacsでcolor-theme-solarizedを使う">emacsでcolor-theme-solarizedを使う</a></li>
+<li><a href="http://d.hatena.ne.jp/syohex/20121211/1355231365" title="Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう">Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう</a></li>
 </ul>
 
 
@@ -141,12 +148,12 @@ bundle updateコマンド 以上。 参照 &hellip;">
   
 
 
-<time datetime="2013-01-30T23:29:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-02-05T19:04:00+09:00" pubdate data-updated="true">Feb 5<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rails/'>Rails</a>
+    <a class='category' href='/blog/categories/emacs/'>Emacs</a>, <a class='category' href='/blog/categories/環境設定/'>環境設定</a>
   
 </span>
 
@@ -155,7 +162,7 @@ bundle updateコマンド 以上。 参照 &hellip;">
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/01/30/update-rails/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/01/30/update-rails/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/02/05/emacs-color-theme/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/02/05/emacs-color-theme/" >Tweet</a>
   
   
   
@@ -164,10 +171,8 @@ bundle updateコマンド 以上。 参照 &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/25/blog-posts/" title="Previous Post: Octopressで記事を投稿">&laquo; Octopressで記事を投稿</a>
+        <a class="basic-alignment left" href="/blog/2013/02/03/customize-octopress/" title="Previous Post: Octopressのカスタマイズ">&laquo; Octopressのカスタマイズ</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/02/01/rails-rails-runner/" title="Next Post: rails runnerを使ってみる">rails runnerを使ってみる &raquo;</a>
       
     </p>
   </footer>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 環境設定 | Note]]></title>
+  <link href="http://masa2sei.github.com/blog/categories/環境設定/atom.xml" rel="self"/>
+  <link href="http://masa2sei.github.com/"/>
+  <updated>2013-02-05T20:03:26+09:00</updated>
+  <id>http://masa2sei.github.com/</id>
+  <author>
+    <name><![CDATA[Your Masahiko Sato]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Emacsのカラーテーマの設定]]></title>
+    <link href="http://masa2sei.github.com/blog/2013/02/05/emacs-color-theme/"/>
+    <updated>2013-02-05T19:04:00+09:00</updated>
+    <id>http://masa2sei.github.com/blog/2013/02/05/emacs-color-theme</id>
+    <content type="html"><![CDATA[<p>Emacsのカラーテーマの設定をsolarizedにする。</p>
+
+<ul>
+<li>Emacs24以前</li>
+</ul>
+
+
+<p>color-themeをrequireする必要がある</p>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://blog.sanojimaru.com/post/19982182895/emacs-color-theme-solarized" title="[emacsでcolor-theme-solarizedを使う">emacsでcolor-theme-solarizedを使う</a></p>
+
+<ul>
+<li>Emacs24<br /></li>
+</ul>
+
+
+<p>(load-theme 'solarized-dark t)でok</p>
+
+<p><strong> この辺の情報が役に立った </strong>  <br />
+- <a href="http://d.hatena.ne.jp/syohex/20121211/1355231365" title="Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう">Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう</a></p>
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="http://blog.sanojimaru.com/post/19982182895/emacs-color-theme-solarized" title="[emacsでcolor-theme-solarizedを使う">emacsでcolor-theme-solarizedを使う</a></li>
+<li><a href="http://d.hatena.ne.jp/syohex/20121211/1355231365" title="Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう">Emacs 24以上を使うなら color-themeではなく、Emacsの themeフレームワークを使おう</a></li>
+</ul>
+
+
+<!-- 参照 -->
+
+]]></content>
+  </entry>
+  
+</feed>
