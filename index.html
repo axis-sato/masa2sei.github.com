@@ -9,7 +9,26 @@
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="Emacsのカラーテーマの設定をsolarizedにする。 Emacs24以前 color-themeをrequireする必要がある この辺の情報が役に立った - emacsでcolor-theme-solarizedを使う Emacs24 (load-theme &#8216;solarized &hellip;">
+  <meta name="description" content="UIImageViewではアニメーションを実現できる。ようはパラパラマンガみたいな感じ。 (animationImages.m) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+//アニメーションの素材
+UIImage* img0 = [ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +87,92 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/16/uiimageview/">iOSでアニメーション</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T22:37:00+09:00" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>UIImageViewではアニメーションを実現できる。ようはパラパラマンガみたいな感じ。</p>
+
+<figure class='code'><figcaption><span> (animationImages.m)</span> <a href='/downloads/code/2013-02-16-22-37/animationImages.m'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">//アニメーションの素材</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img0</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img0&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img1</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img1&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img2</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img2&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">NSArray</span><span class="o">*</span> <span class="n">imgArray</span>  <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObjects:</span><span class="n">img0</span><span class="p">,</span> <span class="n">img1</span><span class="p">,</span> <span class="n">img2</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//アニメーションのコマの設定</span>
+</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationImages</span> <span class="o">=</span> <span class="n">imgArray</span><span class="p">;</span>
+</span><span class='line'><span class="c1">//アニメーションのリピート回数の設定（０は無限ループ）</span>
+</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationRepeatCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="c1">//コマの切り替わる時間の設定</span>
+</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationDuration</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//アニメーションの再生</span>
+</span><span class='line'><span class="p">[</span><span class="n">UIImageView</span> <span class="n">startAnimating</span><span class="p">]</span>
+</span><span class='line'><span class="c1">//アニメーションの停止</span>
+</span><span class='line'><span class="p">[</span><span class="n">UIImageView</span> <span class="n">stopAnimating</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="http://iphone-tora.sakura.ne.jp/uiimageview.html" title="iPhoneアプリ開発の虎の巻">iPhoneアプリ開発の虎の巻</a></li>
+</ul>
+
+
+<!-- 参照 -->
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -390,6 +495,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/16/uiimageview/">iOSでアニメーション</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/05/emacs-color-theme/">Emacsのカラーテーマの設定</a>
       </li>
     
@@ -405,10 +514,6 @@
         <a href="/blog/2013/01/30/update-rails/">Railsのアップデート</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/01/25/blog-posts/">Octopressで記事を投稿</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -418,11 +523,11 @@
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/emacs' style='font-size: 120.0%'>Emacs(1)</a> <a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(3)</a> <a href='/blog/categories/rails' style='font-size: 140.0%'>Rails(2)</a> <a href='/blog/categories/runner' style='font-size: 120.0%'>runner(1)</a> <a href='/blog/categories/環境構築' style='font-size: 120.0%'>環境構築(1)</a> <a href='/blog/categories/環境設定' style='font-size: 120.0%'>環境設定(1)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/emacs' style='font-size: 120.0%'>Emacs(1)</a> <a href='/blog/categories/ios' style='font-size: 120.0%'>iOS(1)</a> <a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(3)</a> <a href='/blog/categories/rails' style='font-size: 140.0%'>Rails(2)</a> <a href='/blog/categories/runner' style='font-size: 120.0%'>runner(1)</a> <a href='/blog/categories/uiimageview' style='font-size: 120.0%'>UIImageView(1)</a> <a href='/blog/categories/環境構築' style='font-size: 120.0%'>環境構築(1)</a> <a href='/blog/categories/環境設定' style='font-size: 120.0%'>環境設定(1)</a> </span>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/emacs'>Emacs (1)</a></li><li><a href='/blog/categories/octopress'>Octopress (3)</a></li><li><a href='/blog/categories/rails'>Rails (2)</a></li><li><a href='/blog/categories/runner'>runner (1)</a></li><li><a href='/blog/categories/環境構築'>環境構築 (1)</a></li><li><a href='/blog/categories/環境設定'>環境設定 (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/emacs'>Emacs (1)</a></li><li><a href='/blog/categories/ios'>iOS (1)</a></li><li><a href='/blog/categories/octopress'>Octopress (3)</a></li><li><a href='/blog/categories/rails'>Rails (2)</a></li><li><a href='/blog/categories/runner'>runner (1)</a></li><li><a href='/blog/categories/uiimageview'>UIImageView (1)</a></li><li><a href='/blog/categories/環境構築'>環境構築 (1)</a></li><li><a href='/blog/categories/環境設定'>環境設定 (1)</a></li></ul>
 </section>
 
   

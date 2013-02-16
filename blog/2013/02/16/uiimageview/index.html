@@ -5,12 +5,30 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Railsのアップデート - Note</title>
+  <title>iOSでアニメーション - Note</title>
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="メモ Ruby on Railsに深刻な脆弱製があり、修正バージョン（3.2.11）が公開されたということでRailsをアップデート。 Gemfileにgem &#8216;rails&#8217;, &#8216;3.2.11&#8217;を記述
-bundle updateコマンド 以上。 参照 &hellip;">
+  <meta name="description" content="UIImageViewではアニメーションを実現できる。ようはパラパラマンガみたいな感じ。 (animationImages.m) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+//アニメーションの素材
+UIImage* img0 = [ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +37,7 @@ bundle updateコマンド 以上。 参照 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/01/30/update-rails/">
+  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/02/16/uiimageview/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -72,7 +90,7 @@ bundle updateコマンド 以上。 参照 &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Railsのアップデート</h1>
+      <h1 class="entry-title">iOSでアニメーション</h1>
     
     
       <p class="meta">
@@ -88,32 +106,59 @@ bundle updateコマンド 以上。 参照 &hellip;">
   
 
 
-<time datetime="2013-01-30T23:29:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-02-16T22:37:00+09:00" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>メモ</h2>
+<div class="entry-content"><p>UIImageViewではアニメーションを実現できる。ようはパラパラマンガみたいな感じ。</p>
 
-<p>Ruby on Railsに深刻な脆弱製があり、修正バージョン（3.2.11）が公開されたということでRailsをアップデート。</p>
-
-<ol>
-<li>Gemfileにgem &#8216;rails&#8217;, &#8216;3.2.11&#8217;を記述</li>
-<li>bundle updateコマンド</li>
-</ol>
-
-
-<p>以上。</p>
-
-<!-- more -->
+<figure class='code'><figcaption><span> (animationImages.m)</span> <a href='/downloads/code/2013-02-16-22-37/animationImages.m'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">//アニメーションの素材</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img0</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img0&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img1</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img1&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img2</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img2&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">NSArray</span><span class="o">*</span> <span class="n">imgArray</span>  <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObjects:</span><span class="n">img0</span><span class="p">,</span> <span class="n">img1</span><span class="p">,</span> <span class="n">img2</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//アニメーションのコマの設定</span>
+</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationImages</span> <span class="o">=</span> <span class="n">imgArray</span><span class="p">;</span>
+</span><span class='line'><span class="c1">//アニメーションのリピート回数の設定（０は無限ループ）</span>
+</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationRepeatCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="c1">//コマの切り替わる時間の設定</span>
+</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationDuration</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//アニメーションの再生</span>
+</span><span class='line'><span class="p">[</span><span class="n">UIImageView</span> <span class="n">startAnimating</span><span class="p">]</span>
+</span><span class='line'><span class="c1">//アニメーションの停止</span>
+</span><span class='line'><span class="p">[</span><span class="n">UIImageView</span> <span class="n">stopAnimating</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>参照</h2>
 
 <ul>
-<li><a href="http://www.itmedia.co.jp/enterprise/articles/1301/10/news020.html" title="「Ruby on Rails」に極めて深刻な脆弱性、直ちにアップデートを">「Ruby on Rails」に極めて深刻な脆弱性、直ちにアップデートを</a></li>
+<li><a href="http://iphone-tora.sakura.ne.jp/uiimageview.html" title="iPhoneアプリ開発の虎の巻">iPhoneアプリ開発の虎の巻</a></li>
 </ul>
 
 
@@ -141,12 +186,12 @@ bundle updateコマンド 以上。 参照 &hellip;">
   
 
 
-<time datetime="2013-01-30T23:29:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-02-16T22:37:00+09:00" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rails/'>Rails</a>
+    <a class='category' href='/blog/categories/uiimageview/'>UIImageView</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>
   
 </span>
 
@@ -155,7 +200,7 @@ bundle updateコマンド 以上。 参照 &hellip;">
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/01/30/update-rails/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/01/30/update-rails/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/02/16/uiimageview/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/02/16/uiimageview/" >Tweet</a>
   
   
   
@@ -164,10 +209,8 @@ bundle updateコマンド 以上。 参照 &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/25/blog-posts/" title="Previous Post: Octopressで記事を投稿">&laquo; Octopressで記事を投稿</a>
+        <a class="basic-alignment left" href="/blog/2013/02/05/emacs-color-theme/" title="Previous Post: Emacsのカラーテーマの設定">&laquo; Emacsのカラーテーマの設定</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/02/01/rails-rails-runner/" title="Next Post: rails runnerを使ってみる">rails runnerを使ってみる &raquo;</a>
       
     </p>
   </footer>
