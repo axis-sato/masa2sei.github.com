@@ -4,7 +4,7 @@
   <title><![CDATA[Category: UIImageView | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/uiimageview/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-16T23:15:42+09:00</updated>
+  <updated>2013-02-16T23:19:40+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -19,6 +19,9 @@
     <updated>2013-02-16T22:37:00+09:00</updated>
     <id>http://masa2sei.github.com/blog/2013/02/16/uiimageview</id>
     <content type="html"><![CDATA[<p>UIImageViewではアニメーションを実現できる。ようはパラパラマンガみたいな感じ。</p>
+
+<!-- more -->
+
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (animationImages.m)</span> <a href='/downloads/code/2013-02-16-22-37/animationImages.m'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
