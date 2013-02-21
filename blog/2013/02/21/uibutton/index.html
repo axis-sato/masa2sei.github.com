@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>iOSでアニメーション - Note</title>
+  <title>UIButton - Note</title>
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="UIImageViewではアニメーションを実現できる。ようはパラパラマンガみたいな感じ。 (animationImages.m) download 1
+  <meta name="description" content="UIButtonをプログラムで生成して表示する。 (UIButton.m) download 1
 2
 3
 4
@@ -27,8 +27,17 @@
 16
 17
 18
-//アニメーションの素材
-UIImage* img0 = [ &hellip;">
+19
+20
+21
+22
+23
+24
+25
+26
+27
+//UIbuttonの生成
+UIButton* btn &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -37,7 +46,7 @@ UIImage* img0 = [ &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/02/16/uiimageview/">
+  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/02/21/uibutton/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -90,7 +99,7 @@ UIImage* img0 = [ &hellip;">
   
   <header>
     
-      <h1 class="entry-title">iOSでアニメーション</h1>
+      <h1 class="entry-title">UIButton</h1>
     
     
       <p class="meta">
@@ -106,19 +115,19 @@ UIImage* img0 = [ &hellip;">
   
 
 
-<time datetime="2013-02-16T22:37:00+09:00" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+<time datetime="2013-02-21T15:16:00+09:00" pubdate data-updated="true">Feb 21<span>st</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>UIImageViewではアニメーションを実現できる。ようはパラパラマンガみたいな感じ。</p>
+<div class="entry-content"><p>UIButtonをプログラムで生成して表示する。</p>
 
 <!-- more -->
 
 
-<figure class='code'><figcaption><span> (animationImages.m)</span> <a href='/downloads/code/2013-02-16-22-37/animationImages.m'>download</a></figcaption>
+<figure class='code'><figcaption><span> (UIButton.m)</span> <a href='/downloads/code/2013-02-21-uibutton/UIButton.m'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -137,31 +146,50 @@ UIImage* img0 = [ &hellip;">
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">//アニメーションの素材</span>
-</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img0</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img0&quot;</span><span class="p">];</span>
-</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img1</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img1&quot;</span><span class="p">];</span>
-</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img2</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;img2&quot;</span><span class="p">];</span>
-</span><span class='line'><span class="n">NSArray</span><span class="o">*</span> <span class="n">imgArray</span>  <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObjects:</span><span class="n">img0</span><span class="p">,</span> <span class="n">img1</span><span class="p">,</span> <span class="n">img2</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">//UIbuttonの生成</span>
+</span><span class='line'><span class="n">UIButton</span><span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIButton</span> <span class="nl">buttonWithType:</span><span class="n">UIButtonTypeRoundedRect</span><span class="p">];</span>
+</span><span class='line'><span class="c1">//ボタンの表示位置とサイズの設定</span>
+</span><span class='line'><span class="n">btn</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//ボタンのタイトル</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">setTitle:</span><span class="s">@&quot;ボタンのタイトル&quot;</span> <span class="nl">forState:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+</span><span class='line'><span class="c1">//ボタンがタッチダウンされたときに呼び出されるメソッドを設定</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">addTarget:</span><span class="n">self</span> <span class="nl">action:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">hoge:</span><span class="p">)</span>
+</span><span class='line'>     <span class="nl">forControlEvents:</span><span class="n">UIControlEventTouchDown</span><span class="p">];</span>
+</span><span class='line'><span class="c1">//サブビューに追加</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview:</span><span class="n">btn</span><span class="p">];</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">//アニメーションのコマの設定</span>
-</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationImages</span> <span class="o">=</span> <span class="n">imgArray</span><span class="p">;</span>
-</span><span class='line'><span class="c1">//アニメーションのリピート回数の設定（０は無限ループ）</span>
-</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationRepeatCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="c1">//コマの切り替わる時間の設定</span>
-</span><span class='line'><span class="n">UIImageView</span><span class="p">.</span><span class="n">animationDuration</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//画像を指定したボタン</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;hoge&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">UIButton</span> <span class="o">*</span><span class="n">btn</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIButton</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">itinitWithFrame:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">)];</span>
+</span><span class='line'><span class="c1">//背景に画像をセット</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">setBackgroundImage:</span><span class="n">img</span> <span class="nl">forState:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">addTarget:</span><span class="n">self</span>
+</span><span class='line'>        <span class="nl">action:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">hoge:</span><span class="p">)</span> <span class="nl">forControlEvents:</span><span class="n">UIControlEventTouchUpInside</span><span class="p">];</span>
 </span><span class='line'>
 </span><span class='line'>
-</span><span class='line'><span class="c1">//アニメーションの再生</span>
-</span><span class='line'><span class="p">[</span><span class="n">UIImageView</span> <span class="n">startAnimating</span><span class="p">]</span>
-</span><span class='line'><span class="c1">//アニメーションの停止</span>
-</span><span class='line'><span class="p">[</span><span class="n">UIImageView</span> <span class="n">stopAnimating</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 呼ばれるhogeメソッド</span>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">hoge:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">sender</span><span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ここに何かの処理を記述する</span>
+</span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <h2>参照</h2>
 
 <ul>
-<li><a href="http://iphone-tora.sakura.ne.jp/uiimageview.html" title="iPhoneアプリ開発の虎の巻">iPhoneアプリ開発の虎の巻</a></li>
+<li>[iPhoneアプリ開発の虎の巻<a href="http://iphone-tora.sakura.ne.jp/uibutton.html" title="[iPhoneアプリ開発の虎の巻">1</a></li>
+<li><a href="http://golog.plus.vc/iphone/6146/" title="プログラムで複数配置したUIButtonで、どのUIButtonが押されたか判別したい">プログラムで複数配置したUIButtonで、どのUIButtonが押されたか判別したい</a></li>
 </ul>
 
 
@@ -189,12 +217,12 @@ UIImage* img0 = [ &hellip;">
   
 
 
-<time datetime="2013-02-16T22:37:00+09:00" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+<time datetime="2013-02-21T15:16:00+09:00" pubdate data-updated="true">Feb 21<span>st</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/uiimageview/'>UIImageView</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>
+    <a class='category' href='/blog/categories/uibutton/'>UIButton</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>
   
 </span>
 
@@ -203,7 +231,7 @@ UIImage* img0 = [ &hellip;">
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/02/16/uiimageview/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/02/16/uiimageview/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/02/21/uibutton/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/02/21/uibutton/" >Tweet</a>
   
   
   
@@ -212,10 +240,8 @@ UIImage* img0 = [ &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/02/05/emacs-color-theme/" title="Previous Post: Emacsのカラーテーマの設定">&laquo; Emacsのカラーテーマの設定</a>
+        <a class="basic-alignment left" href="/blog/2013/02/16/uiimageview/" title="Previous Post: iOSでアニメーション">&laquo; iOSでアニメーション</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/02/21/uibutton/" title="Next Post: UIButton">UIButton &raquo;</a>
       
     </p>
   </footer>
