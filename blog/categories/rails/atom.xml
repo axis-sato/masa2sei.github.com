@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T17:43:11+09:00</updated>
+  <updated>2013-02-22T17:44:36+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -36,7 +36,18 @@
 <h3>2. rails runnerコマンドで実行するプログラムの作成</h3>
 
 <p>libの下に以下の内容でファイルを作成
-{% include_code get_rss.rb %}</p>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (get_rss.rb)</span> <a href='/downloads/code/get_rss.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="k">class</span> <span class="nc">Cron</span><span class="o">::</span><span class="no">GetRss</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">get_rss</span>
+</span><span class='line'>        <span class="c1"># 実行したい処理</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>参考にしたサイトではlib/tasksにファイルを作成していたが、lib以下ならどこでもいいらしい。<br />
 lib/tasksには、独自のRakeタスクのみ置いた方がわかりやすいと思った。</p>

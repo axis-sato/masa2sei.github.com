@@ -9,22 +9,7 @@
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="UIPickerViewを使ったときのメモ ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。 実装ファイルに以下の記述を追加。 (ViewController.m) download 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16 &hellip;">
+  <meta name="description" content="UIPickerViewを使ったときのメモ ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。 @interface ViewController : UIViewController &lt;UIPickerViewDelegate&gt; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +100,10 @@
 
 
 <p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。</p>
+
+<pre><code>    @interface ViewController : UIViewController
+    &lt;UIPickerViewDelegate&gt;
+</code></pre>
 
 <p>実装ファイルに以下の記述を追加。</p>
 

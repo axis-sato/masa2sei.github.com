@@ -4,7 +4,7 @@
   <title><![CDATA[Note]]></title>
   <link href="http://masa2sei.github.com/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T17:41:21+09:00</updated>
+  <updated>2013-02-22T17:44:36+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -24,6 +24,10 @@
 
 
 <p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。</p>
+
+<pre><code>    @interface ViewController : UIViewController
+    &lt;UIPickerViewDelegate&gt;
+</code></pre>
 
 <p>実装ファイルに以下の記述を追加。</p>
 
