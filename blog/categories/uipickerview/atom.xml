@@ -4,7 +4,7 @@
   <title><![CDATA[Category: UIPickerView | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/uipickerview/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T17:48:55+09:00</updated>
+  <updated>2013-02-22T17:52:50+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -146,7 +146,7 @@
 </span><span class='line'><span class="c1">// ピッカービューの行のタイトルを返す</span>
 </span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nl">pickerView:</span> <span class="p">(</span><span class="n">UIPickerView</span><span class="o">*</span><span class="p">)</span> <span class="n">pView</span> <span class="nl">titleForRow:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="n">row</span> <span class="nl">forComponent:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">componet</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">//0行目に配列の0番目の要素を設定</span>
+</span><span class='line'>    <span class="c1">//n行目に配列のn番目の要素を設定</span>
 </span><span class='line'>    <span class="k">return</span> <span class="p">[</span><span class="n">categoryArray</span> <span class="nl">objectAtIndex:</span><span class="n">row</span><span class="p">];</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>

@@ -49,7 +49,7 @@
 // ピッカービューの行のタイトルを返す
 - (NSString*)pickerView: (UIPickerView*) pView titleForRow:(NSInteger) row forComponent:(NSInteger)componet
 {
-    //0行目に配列の0番目の要素を設定
+    //n行目に配列のn番目の要素を設定
     return [categoryArray objectAtIndex:row];
 }
 
