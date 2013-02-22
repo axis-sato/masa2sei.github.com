@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: UIPickerView | Note]]></title>
+  <link href="http://masa2sei.github.com/blog/categories/uipickerview/atom.xml" rel="self"/>
+  <link href="http://masa2sei.github.com/"/>
+  <updated>2013-02-22T17:39:09+09:00</updated>
+  <id>http://masa2sei.github.com/</id>
+  <author>
+    <name><![CDATA[Your Masahiko Sato]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[UIPickerView]]></title>
+    <link href="http://masa2sei.github.com/blog/2013/02/22/uipickerview/"/>
+    <updated>2013-02-22T17:02:00+09:00</updated>
+    <id>http://masa2sei.github.com/blog/2013/02/22/uipickerview</id>
+    <content type="html"><![CDATA[<p>UIPickerViewを使ったときのメモ</p>
+
+<!-- more -->
+
+
+<p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。
+{% include_code 2013-02-22-uipickerview/ViewController.h %}</p>
+
+<p>実装ファイルに以下の記述を追加。
+{% include_code 2013-02-22-uipickerview/ViewController.m %}
+今回は、配列に格納されている要素をPicker Viewの行として表示</p>
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="http://araking56.blog134.fc2.com/blog-entry-200.html" title="ピッカービュー(UIPickerView)の使い方">ピッカービュー(UIPickerView)の使い方</a></li>
+<li><a href="http://iphone-tora.sakura.ne.jp/uipickerview.html" title="iPhoneアプリ開発の虎の巻">iPhoneアプリ開発の虎の巻</a></li>
+<li><a href="http://www.objectivec-iphone.com/UIKit/UIPickerView/UIPickerView.html" title="UIPickerViewの基本的な使い方">UIPickerViewの基本的な使い方</a></li>
+</ul>
+
+
+<!-- 参照 -->
+
+]]></content>
+  </entry>
+  
+</feed>
