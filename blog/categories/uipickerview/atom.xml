@@ -4,7 +4,7 @@
   <title><![CDATA[Category: UIPickerView | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/uipickerview/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T17:41:21+09:00</updated>
+  <updated>2013-02-22T17:43:11+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -23,137 +23,11 @@
 <!-- more -->
 
 
-<p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。</p>
+<p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。
+{% include_code 2013-02-22-uipickerview/ViewController.h %}</p>
 
 <p>実装ファイルに以下の記述を追加。
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (ViewController.m)</span> <a href='/downloads/code/2013-02-22-uipickerview/ViewController.m'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &quot;ViewController.h&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@implementation</span> <span class="nc">ViewController</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="n">NSArray</span><span class="o">*</span> <span class="n">categoryArray</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-</span><span class='line'>	
-</span><span class='line'>    <span class="c1">// pickerdelegateの設定</span>
-</span><span class='line'>    <span class="n">self</span><span class="p">.</span><span class="n">picker</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//カテゴリを配列に</span>
-</span><span class='line'>    <span class="n">categoryArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObjects:</span>
-</span><span class='line'>                     <span class="s">@&quot;Ambient&quot;</span><span class="p">,</span>
-</span><span class='line'>                     <span class="s">@&quot;SoloAmbient&quot;</span><span class="p">,</span>
-</span><span class='line'>                     <span class="s">@&quot;Playback&quot;</span><span class="p">,</span>
-</span><span class='line'>                     <span class="s">@&quot;Record&quot;</span><span class="p">,</span>
-</span><span class='line'>                     <span class="s">@&quot;PlayAndRecord&quot;</span><span class="p">,</span>
-</span><span class='line'>                     <span class="s">@&quot;AudioProcessing&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">didReceiveMemoryWarning</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">didReceiveMemoryWarning</span><span class="p">];</span>
-</span><span class='line'>    <span class="c1">// Dispose of any resources that can be recreated.</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// ピッカービューのコンポーネント（行）の数を返す *必須</span>
-</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="nl">numberOfComponentsInPickerView:</span><span class="p">(</span><span class="n">UIPickerView</span> <span class="o">*</span><span class="p">)</span><span class="n">pickerView</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// 行数を返す例　*必須</span>
-</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="nl">pickerView:</span> <span class="p">(</span><span class="n">UIPickerView</span><span class="o">*</span><span class="p">)</span><span class="n">pView</span> <span class="nl">numberOfRowsInComponent:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="n">component</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="p">[</span><span class="n">categoryArray</span> <span class="n">count</span><span class="p">];</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">cnt</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// ピッカービューの行のタイトルを返す</span>
-</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nl">pickerView:</span> <span class="p">(</span><span class="n">UIPickerView</span><span class="o">*</span><span class="p">)</span> <span class="n">pView</span> <span class="nl">titleForRow:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="n">row</span> <span class="nl">forComponent:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">componet</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">//0行目に配列の0番目の要素を設定</span>
-</span><span class='line'>    <span class="k">return</span> <span class="p">[</span><span class="n">categoryArray</span> <span class="nl">objectAtIndex:</span><span class="n">row</span><span class="p">];</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//選択されたピッカービューを取得</span>
-</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">pickerView:</span><span class="p">(</span><span class="n">UIPickerView</span> <span class="o">*</span><span class="p">)</span><span class="n">pickerView</span> <span class="nl">didSelectRow:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">row</span> <span class="nl">inComponent:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">component</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">//0列目の選択している行番号を取得</span>
-</span><span class='line'>    <span class="n">NSInteger</span> <span class="n">selectedRow</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickerView</span> <span class="nl">selectedRowInComponent:</span><span class="mi">0</span><span class="p">];</span>
-</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%d&quot;</span><span class="p">,</span> <span class="n">selectedRow</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% include_code 2013-02-22-uipickerview/ViewController.m %}
 今回は、配列に格納されている要素をPicker Viewの行として表示</p>
 
 <h2>参照</h2>
