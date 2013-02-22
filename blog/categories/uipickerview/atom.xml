@@ -4,7 +4,7 @@
   <title><![CDATA[Category: UIPickerView | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/uipickerview/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T18:00:18+09:00</updated>
+  <updated>2013-02-22T18:02:05+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -161,8 +161,6 @@
 </span><span class='line'><span class="k">@end</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 今回は、配列に格納されている要素をPicker Viewの行として表示</p>
-
-<p>Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | "title text" ["alt text"]] %}</p>
 
 <h2>参照</h2>
 
