@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T17:39:09+09:00</updated>
+  <updated>2013-02-22T17:41:21+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -45,7 +45,7 @@
 <h4>CSSの編集</h4>
 
 <p>./sass/custom/<em>styles.scssを以下のように編集
-{% include_code </em>styles.scss %}</p>
+File /Users/masa2sei/Dropbox/octopress/source/downloads/code/</em>styles.scss could not be found</p>
 
 <h4>_config.ymlの編集</h4>
 
@@ -65,7 +65,24 @@
 <h4>ナビゲーションの編集</h4>
 
 <p>source/_includes/custom/navigation.htmlに新規作成したページへのリンクを追加
-{% include_code navigation.html %}</p>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (navigation.html)</span> <a href='/downloads/code/navigation.html'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/unix&quot;</span><span class="nt">&gt;</span>Unixコマンド<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/git&quot;</span><span class="nt">&gt;</span>Gitコマンド<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/emacs&quot;</span><span class="nt">&gt;</span>Emacs<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/rails&quot;</span><span class="nt">&gt;</span>Rails<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p><strong> この辺の情報が役に立った </strong>  <br />
 - <a href="http://qiita.com/items/4b9b6efd9d52d904986c" title="Octopressで新規ページを作成してみよう！">Octopressで新規ページを作成してみよう！</a></p>
@@ -74,7 +91,10 @@
 
 <h4>_config.ymlをのexcerpt_linkを以下のように変更</h4>
 
-<p>{% include_code _config.yml %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (_config.yml)</span> <a href='/downloads/code/_config.yml'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">excerpt_link</span><span class="p-Indicator">:</span> <span class="s">&quot;続きを読む&quot;</span>  <span class="c1"># &quot;Continue reading&quot; link text at the bottom of excerpted articles</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h4>記事の編集</h4>
 

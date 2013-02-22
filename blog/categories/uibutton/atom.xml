@@ -4,7 +4,7 @@
   <title><![CDATA[Category: UIButton | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/uibutton/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T17:39:09+09:00</updated>
+  <updated>2013-02-22T17:41:21+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -23,7 +23,62 @@
 <!-- more -->
 
 
-<p>{% include_code 2013-02-21-uibutton/UIButton.m %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (UIButton.m)</span> <a href='/downloads/code/2013-02-21-uibutton/UIButton.m'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">//UIbuttonの生成</span>
+</span><span class='line'><span class="n">UIButton</span><span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIButton</span> <span class="nl">buttonWithType:</span><span class="n">UIButtonTypeRoundedRect</span><span class="p">];</span>
+</span><span class='line'><span class="c1">//ボタンの表示位置とサイズの設定</span>
+</span><span class='line'><span class="n">btn</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//ボタンのタイトル</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">setTitle:</span><span class="s">@&quot;ボタンのタイトル&quot;</span> <span class="nl">forState:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+</span><span class='line'><span class="c1">//ボタンがタッチダウンされたときに呼び出されるメソッドを設定</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">addTarget:</span><span class="n">self</span> <span class="nl">action:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">hoge:</span><span class="p">)</span>
+</span><span class='line'>     <span class="nl">forControlEvents:</span><span class="n">UIControlEventTouchDown</span><span class="p">];</span>
+</span><span class='line'><span class="c1">//サブビューに追加</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview:</span><span class="n">btn</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//画像を指定したボタン</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">img</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;hoge&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">UIButton</span> <span class="o">*</span><span class="n">btn</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIButton</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">itinitWithFrame:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">)];</span>
+</span><span class='line'><span class="c1">//背景に画像をセット</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">setBackgroundImage:</span><span class="n">img</span> <span class="nl">forState:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">addTarget:</span><span class="n">self</span>
+</span><span class='line'>        <span class="nl">action:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">hoge:</span><span class="p">)</span> <span class="nl">forControlEvents:</span><span class="n">UIControlEventTouchUpInside</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 呼ばれるhogeメソッド</span>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">hoge:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">sender</span><span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ここに何かの処理を記述する</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h2>参照</h2>
 

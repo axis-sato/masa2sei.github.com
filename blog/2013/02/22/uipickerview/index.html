@@ -1,32 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: UIPickerView | Note]]></title>
-  <link href="http://masa2sei.github.com/blog/categories/uipickerview/atom.xml" rel="self"/>
-  <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T17:41:21+09:00</updated>
-  <id>http://masa2sei.github.com/</id>
-  <author>
-    <name><![CDATA[Your Masahiko Sato]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>UIPickerView - Note</title>
+  <meta name="author" content="Your Masahiko Sato">
 
   
-  <entry>
-    <title type="html"><![CDATA[UIPickerView]]></title>
-    <link href="http://masa2sei.github.com/blog/2013/02/22/uipickerview/"/>
-    <updated>2013-02-22T17:02:00+09:00</updated>
-    <id>http://masa2sei.github.com/blog/2013/02/22/uipickerview</id>
-    <content type="html"><![CDATA[<p>UIPickerViewを使ったときのメモ</p>
+  <meta name="description" content="UIPickerViewを使ったときのメモ ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。 実装ファイルに以下の記述を追加。 (ViewController.m) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://masa2sei.github.com/blog/2013/02/22/uipickerview/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Note" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Note</a></h1>
+  
+    <h2>個人用の記録</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:masa2sei.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/unix">Unixコマンド</a></li>
+  <li><a href="/git">Gitコマンド</a></li>
+  <li><a href="/emacs">Emacs</a></li>
+  <li><a href="/rails">Rails</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">UIPickerView</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-22T17:02:00+09:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>UIPickerViewを使ったときのメモ</p>
 
 <!-- more -->
 
 
 <p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。</p>
 
-<p>実装ファイルに以下の記述を追加。
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (ViewController.m)</span> <a href='/downloads/code/2013-02-22-uipickerview/ViewController.m'>download</a></figcaption>
+<p>実装ファイルに以下の記述を追加。</p>
+
+<figure class='code'><figcaption><span> (ViewController.m)</span> <a href='/downloads/code/2013-02-22-uipickerview/ViewController.m'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -105,7 +197,7 @@
 </span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-</span><span class='line'>	
+</span><span class='line'>  
 </span><span class='line'>    <span class="c1">// pickerdelegateの設定</span>
 </span><span class='line'>    <span class="n">self</span><span class="p">.</span><span class="n">picker</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
 </span><span class='line'>
@@ -153,8 +245,10 @@
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">@end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-今回は、配列に格納されている要素をPicker Viewの行として表示</p>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>今回は、配列に格納されている要素をPicker Viewの行として表示</p>
 
 <h2>参照</h2>
 
@@ -167,7 +261,135 @@
 
 <!-- 参照 -->
 
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-</feed>
+
+<span class="byline author vcard">Posted by <span class="fn">Your Masahiko Sato</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-22T17:02:00+09:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/uipickerview/'>UIPickerView</a>, <a class='category' href='/blog/categories/ios/'>iOS</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://masa2sei.github.com/blog/2013/02/22/uipickerview/" data-via="" data-counturl="http://masa2sei.github.com/blog/2013/02/22/uipickerview/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/21/uibutton/" title="Previous Post: UIButton">&laquo; UIButton</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/22/uipickerview/">UIPickerView</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/21/uibutton/">UIButton</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/16/uiimageview/">iOSでアニメーション</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/05/emacs-color-theme/">Emacsのカラーテーマの設定</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/03/customize-octopress/">Octopressのカスタマイズ</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/emacs' style='font-size: 120.0%'>Emacs(1)</a> <a href='/blog/categories/ios' style='font-size: 160.0%'>iOS(3)</a> <a href='/blog/categories/octopress' style='font-size: 160.0%'>Octopress(3)</a> <a href='/blog/categories/rails' style='font-size: 140.0%'>Rails(2)</a> <a href='/blog/categories/runner' style='font-size: 120.0%'>runner(1)</a> <a href='/blog/categories/uibutton' style='font-size: 120.0%'>UIButton(1)</a> <a href='/blog/categories/uiimageview' style='font-size: 120.0%'>UIImageView(1)</a> <a href='/blog/categories/uipickerview' style='font-size: 120.0%'>UIPickerView(1)</a> <a href='/blog/categories/環境構築' style='font-size: 120.0%'>環境構築(1)</a> <a href='/blog/categories/環境設定' style='font-size: 120.0%'>環境設定(1)</a> </span>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categories/emacs'>Emacs (1)</a></li><li><a href='/blog/categories/ios'>iOS (3)</a></li><li><a href='/blog/categories/octopress'>Octopress (3)</a></li><li><a href='/blog/categories/rails'>Rails (2)</a></li><li><a href='/blog/categories/runner'>runner (1)</a></li><li><a href='/blog/categories/uibutton'>UIButton (1)</a></li><li><a href='/blog/categories/uiimageview'>UIImageView (1)</a></li><li><a href='/blog/categories/uipickerview'>UIPickerView (1)</a></li><li><a href='/blog/categories/環境構築'>環境構築 (1)</a></li><li><a href='/blog/categories/環境設定'>環境設定 (1)</a></li></ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Masahiko Sato -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
