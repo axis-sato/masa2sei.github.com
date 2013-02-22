@@ -9,6 +9,7 @@
     NSArray* categoryArray;
 }
 
+@synthesize picker      = _picker;
 
 - (void)viewDidLoad
 {
