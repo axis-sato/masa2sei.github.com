@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-03-10T22:09:34+09:00</updated>
+  <updated>2013-03-10T22:13:27+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -266,11 +266,10 @@
 <span class='line-number'>61</span>
 <span class='line-number'>62</span>
 <span class='line-number'>63</span>
-<span class='line-number'>64</span>
 </pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &quot;ViewController.h&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span>
-</span><span class='line'>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UIPickerView</span> <span class="o">*</span><span class="n">picker</span><span class="p">;</span>
 </span><span class='line'><span class="k">@end</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">@implementation</span> <span class="nc">ViewController</span>
@@ -278,9 +277,8 @@
 </span><span class='line'>    <span class="n">NSArray</span><span class="o">*</span> <span class="n">categoryArray</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">@synthesize</span> <span class="n">picker</span>      <span class="o">=</span> <span class="n">_picker</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
 </span><span class='line'>	
@@ -297,7 +295,7 @@
 </span><span class='line'>                     <span class="s">@&quot;AudioProcessing&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didReceiveMemoryWarning</span>
+</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">didReceiveMemoryWarning</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">didReceiveMemoryWarning</span><span class="p">];</span>
 </span><span class='line'>    <span class="c1">// Dispose of any resources that can be recreated.</span>
@@ -305,12 +303,12 @@
 </span><span class='line'>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// ピッカービューのコンポーネント（行）の数を返す *必須</span>
-</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="nf">numberOfComponentsInPickerView:</span><span class="p">(</span><span class="n">UIPickerView</span> <span class="o">*</span><span class="p">)</span><span class="nv">pickerView</span> <span class="p">{</span>
+</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="nl">numberOfComponentsInPickerView:</span><span class="p">(</span><span class="n">UIPickerView</span> <span class="o">*</span><span class="p">)</span><span class="n">pickerView</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// 行数を返す例　*必須</span>
-</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="nf">pickerView:</span> <span class="p">(</span><span class="n">UIPickerView</span><span class="o">*</span><span class="p">)</span><span class="nv">pView</span> <span class="nf">numberOfRowsInComponent:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="n">component</span> <span class="p">{</span>
+</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="nl">pickerView:</span> <span class="p">(</span><span class="n">UIPickerView</span><span class="o">*</span><span class="p">)</span><span class="n">pView</span> <span class="nl">numberOfRowsInComponent:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span> <span class="n">component</span> <span class="p">{</span>
 </span><span class='line'>    <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="p">[</span><span class="n">categoryArray</span> <span class="n">count</span><span class="p">];</span>
 </span><span class='line'>    <span class="k">return</span> <span class="n">cnt</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>

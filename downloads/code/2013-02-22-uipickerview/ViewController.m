@@ -1,7 +1,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @end
 
 @implementation ViewController
@@ -9,7 +9,6 @@
     NSArray* categoryArray;
 }
 
-@synthesize picker      = _picker;
 
 - (void)viewDidLoad
 {
