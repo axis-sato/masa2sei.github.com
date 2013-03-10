@@ -18,7 +18,8 @@ UIButton *btn = [[UIButton alloc] itinitWithFrame:CGRectMake(10, 10, 100, 30)];
 [btn setBackgroundImage:img forState:UIControlStateNormal];
 [btn addTarget:self
         action:@selector(hoge:) forControlEvents:UIControlEventTouchUpInside];
-
+//サブビューに追加
+[self.view addSubview:btn];
 
 
 // 呼ばれるhogeメソッド

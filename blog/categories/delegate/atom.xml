@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Delegate | Note]]></title>
+  <link href="http://masa2sei.github.com/blog/categories/delegate/atom.xml" rel="self"/>
+  <link href="http://masa2sei.github.com/"/>
+  <updated>2013-03-10T16:33:46+09:00</updated>
+  <id>http://masa2sei.github.com/</id>
+  <author>
+    <name><![CDATA[Your Masahiko Sato]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[iOS Delegate]]></title>
+    <link href="http://masa2sei.github.com/blog/2013/03/09/ios-delegate/"/>
+    <updated>2013-03-09T23:31:00+09:00</updated>
+    <id>http://masa2sei.github.com/blog/2013/03/09/ios-delegate</id>
+    <content type="html"><![CDATA[<p>Delegateメソッドを実装したときのメモ</p>
+
+<!-- more -->
+
+
+<h4>Hogeクラス</h4>
+
+<p>今回は、Hogeクラスであるイベント(onTapEvent)が起きたときに、Fugaクラスに実装しているデリゲートメソッド(hogeDelegateMethod)を呼び出す例。
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (Hoge.h)</span> <a href='/downloads/code/2013-03-09-ios-delegate/Hoge.h'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">@protocol</span> <span class="nc">HogeDelegate</span>
+</span><span class='line'><span class="c1">//Fugaクラスに実装するメソッド</span>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">hogeDelegateMethod</span><span class="p">;</span>
+</span><span class='line'><span class="k">@end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@interface</span> <span class="nc">Hoge</span> : <span class="nc">UIViewController</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span><span class="n">nonatomic</span><span class="p">)</span> <span class="kt">id</span> <span class="o">&lt;</span><span class="n">HogeDelegate</span><span class="o">&gt;</span> <span class="n">delegate</span>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (Hoge.m)</span> <a href='/downloads/code/2013-03-09-ios-delegate/Hoge.m'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &quot;Hoge.h&quot;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">@interface</span> <span class="nc">Hoge</span> <span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@implementation</span> <span class="nc">Hoge</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//onTapEventが実行されるたびにデリゲートメソッドを呼び出す</span>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onTapEvent</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">//Fugaクラスに実装してあるHogeDelegateMethodを呼び出す</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">delegate</span> <span class="n">hogeDelegateMethod</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>Fugaクラス</h4>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (Fuga.h)</span> <a href='/downloads/code/2013-03-09-ios-delegate/Fuga.h'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
+</span><span class='line'><span class="cp">#import &quot;Hoge.h&quot;</span>
+</span><span class='line'><span class="k">@interface</span> <span class="nc">Fuga</span> <span class="o">&lt;</span><span class="n">HogeDelegate</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+今回は、初期化とともにHogeクラスのインスタンスを生成したが、別にインスタンスを生成するタイミングはいつでもOK
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (Fuga.m)</span> <a href='/downloads/code/2013-03-09-ios-delegate/Fuga.m'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &quot;Fuga.h&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@interface</span> <span class="nc">Fuga</span> <span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@implementation</span> <span class="nc">Fuga</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//初期化とともにHogeクラスのインスタンスを生成し、delegateプロパティに自身(Fugaクラスのインスタンス)を設定</span>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span><span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">((</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">){</span>
+</span><span class='line'>        <span class="n">Hoge</span> <span class="o">*</span><span class="n">hoge</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Hoge</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">hoge</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Hogeクラスから呼び出されるデリゲートメソッド</span>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">hogeDelegateMethod</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;デリゲート&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>参照</h2>
+
+<ul>
+<li><a href="http://eikatou.net/blog/2012/06/objective-c_kiso_protocol/" title="Objective-Cの基礎（プロトコル定義）">Objective-Cの基礎（プロトコル定義）</a></li>
+<li><a href="http://www.ict-fractal.com/blog/2012/02/uitableviewcell.html" title="カスタマイズしたUITableViewCellから自前のイベントを受け取る">カスタマイズしたUITableViewCellから自前のイベントを受け取る</a></li>
+<li><a href="http://d.hatena.ne.jp/peccu/20110610/delegate" title="Objective-Cでprotocolとかdelegateとかいい感じに警告をなくす">Objective-Cでprotocolとかdelegateとかいい感じに警告をなくす</a></li>
+</ul>
+
+
+<!-- 参照 -->
+
+]]></content>
+  </entry>
+  
+</feed>

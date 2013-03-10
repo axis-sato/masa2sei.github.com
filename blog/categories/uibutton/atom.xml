@@ -4,7 +4,7 @@
   <title><![CDATA[Category: UIButton | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/uibutton/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-02-22T18:02:05+09:00</updated>
+  <updated>2013-03-10T16:33:46+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -51,6 +51,7 @@
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
+<span class='line-number'>28</span>
 </pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">//UIbuttonの生成</span>
 </span><span class='line'><span class="n">UIButton</span><span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIButton</span> <span class="nl">buttonWithType:</span><span class="n">UIButtonTypeRoundedRect</span><span class="p">];</span>
 </span><span class='line'><span class="c1">//ボタンの表示位置とサイズの設定</span>
@@ -71,7 +72,8 @@
 </span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">setBackgroundImage:</span><span class="n">img</span> <span class="nl">forState:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
 </span><span class='line'><span class="p">[</span><span class="n">btn</span> <span class="nl">addTarget:</span><span class="n">self</span>
 </span><span class='line'>        <span class="nl">action:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">hoge:</span><span class="p">)</span> <span class="nl">forControlEvents:</span><span class="n">UIControlEventTouchUpInside</span><span class="p">];</span>
-</span><span class='line'>
+</span><span class='line'><span class="c1">//サブビューに追加</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview:</span><span class="n">btn</span><span class="p">];</span>
 </span><span class='line'>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// 呼ばれるhogeメソッド</span>
