@@ -4,7 +4,7 @@
   <title><![CDATA[Category: UIPickerView | Note]]></title>
   <link href="http://masa2sei.github.com/blog/categories/uipickerview/atom.xml" rel="self"/>
   <link href="http://masa2sei.github.com/"/>
-  <updated>2013-03-10T16:33:46+09:00</updated>
+  <updated>2013-03-10T22:09:34+09:00</updated>
   <id>http://masa2sei.github.com/</id>
   <author>
     <name><![CDATA[Your Masahiko Sato]]></name>
@@ -23,11 +23,17 @@
 <!-- more -->
 
 
-<p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。</p>
-
-<pre><code>    @interface ViewController : UIViewController
-    &lt;UIPickerViewDelegate&gt;
-</code></pre>
+<p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (ViewController.h)</span> <a href='/downloads/code/2013-02-22-uipickerview/ViewController.h'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
+</span><span class='line'><span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">UIPickerViewDelegate</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>実装ファイルに以下の記述を追加。
 <div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (ViewController.m)</span> <a href='/downloads/code/2013-02-22-uipickerview/ViewController.m'>download</a></figcaption>

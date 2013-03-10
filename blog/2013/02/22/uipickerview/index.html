@@ -9,7 +9,12 @@
   <meta name="author" content="Your Masahiko Sato">
 
   
-  <meta name="description" content="UIPickerViewを使ったときのメモ ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。 @interface ViewController : UIViewController &lt;UIPickerViewDelegate&gt; &hellip;">
+  <meta name="description" content="UIPickerViewを使ったときのメモ ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。 (ViewController.h) download 1
+2
+3
+4
+#import &lt;UIKit/UIKit.h&gt;
+@interface &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -101,9 +106,17 @@
 
 <p>ヘッダファイルにUIPickerViewDelegateプロトコルの宣言を追加する。</p>
 
-<pre><code>    @interface ViewController : UIViewController
-    &lt;UIPickerViewDelegate&gt;
-</code></pre>
+<figure class='code'><figcaption><span> (ViewController.h)</span> <a href='/downloads/code/2013-02-22-uipickerview/ViewController.h'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
+</span><span class='line'><span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">UIPickerViewDelegate</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>実装ファイルに以下の記述を追加。</p>
 
